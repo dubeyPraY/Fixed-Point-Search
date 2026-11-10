@@ -1,0 +1,10 @@
+# Tested demo dependencies. Use Python 3.10 or 3.11.
+numpy==2.2.6
+scipy==1.15.3
+qiskit==2.6.2
+matplotlib==3.10.9
+pylatexenc==2.11
+ipython==8.39.0
+ipykernel==7.3.0
+# Notebook editor; its version does not affect the search implementation.
+jupyterlab>=4,<5

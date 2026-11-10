@@ -1,0 +1,22 @@
+{
+  "total_qubits": 10,
+  "data_qubits": 9,
+  "solution_states": [
+    37
+  ],
+  "shots": 10000,
+  "seed": 12345,
+  "engine": "fast",
+  "show_circuit": false,
+  "circuit_detail": "compact",
+  "python": "3.10.9",
+  "qiskit": "2.6.2",
+  "numpy": "2.2.6",
+  "matplotlib": "3.10.9",
+  "theory_success_probability": 0.9893170926816844,
+  "exact_success_probability": 0.9893170926816844,
+  "sampled_success_probability": 0.9868,
+  "theory_mean_oracle_calls": 22.75721088215292,
+  "sampled_mean_oracle_calls": 22.9874,
+  "maximum_oracle_calls": 64
+}
