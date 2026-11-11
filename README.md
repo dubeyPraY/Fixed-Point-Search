@@ -3,7 +3,7 @@
 This repository contains code for *Ancilla-mediated fixed-point quantum search
 using Grover iterations* by Yash Prabhat, Snigdha Thakur and Ankur Raina.
 
-[Read the paper (PDF)](https://arxiv.org/pdf/2608.29839) |
+[Read the paper (PDF)](docs/manuscript-2026-11-11.pdf) |
 [arXiv abstract and version history](https://arxiv.org/abs/2608.29839)
 
 The [demonstration notebook](notebooks/fixed_point_search.ipynb) walks through
@@ -94,7 +94,7 @@ solution list because that list defines the example oracle.
 
 The [paper is available on arXiv](https://arxiv.org/pdf/2608.29839).
 The notebook's equation references follow Algorithm 1 and Appendix A of the
-manuscript version dated November 7, 2026 used for this implementation.
+manuscript version dated November 11, 2026 used for this implementation.
 The [companion guide](Codes/companion.pdf) explains the
 notation and gives a small worked example.
 
@@ -131,7 +131,7 @@ using its Eq. (6) definition of epsilon. In the default experiment, epsilon is
 
 An analytical sweep at `N = 10^10` shows how the ratio varies. It distinguishes
 the M-dependent cutoff in `Codes/make_figures.py` from the implemented search's
-fixed N-based schedule. It also shows Eq. (35)'s successful-event sum separately
+fixed N-based schedule. It also shows the successful-event contribution separately
 from the mean that includes failed attempts. The 1.33 factor is an approximation,
 not a constant enforced by the simulation. This analytical sweep does not
 allocate a statevector of that size.
@@ -190,8 +190,8 @@ Fixed-Point-Search/
 
 `notebooks/` is the starting point for the Qiskit demonstration. `Codes/`
 contains the existing research calculations, checks and figure scripts.
-Those files retain their original assumptions and conventions; use the new
-notebook's definitions when comparing its checkpoint and query counts.
+These files use the same manuscript version, checkpoint definitions and query
+counts as the demonstration notebook.
 
 ## Check or reproduce a change
 

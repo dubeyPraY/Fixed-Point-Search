@@ -1,7 +1,7 @@
 # Manuscript version and conventions
 
-This repository follows the supplied manuscript dated November 7, 2026.
-The [reference PDF](manuscript-2026-11-07.pdf) is included unchanged, with its
+This repository follows the supplied manuscript dated November 11, 2026.
+The [reference PDF](manuscript-2026-11-11.pdf) is included unchanged, with its
 SHA-256 checksum alongside it. The arXiv link identifies the paper but may
 serve a different version. All equation numbers below refer to the local PDF.
 
@@ -15,7 +15,7 @@ serve a different version. All equation numbers below refer to the local PDF.
 | Conditional, first and cumulative success | Eqs. (25), (29), (30) |
 | Per-check and cumulative query costs | Eqs. (32), (33) |
 | Budget sufficient for the success guarantee | Eq. (34) |
-| Successful-event cost sum | Eq. (35) |
+| Expected cost of all attempts | Eq. (35) |
 | Approximate epsilon comparison | Eq. (36) |
 | Gate construction | Appendix A |
 
@@ -26,8 +26,8 @@ Its schedule does not need M. The analytical figure cutoff instead stops at
 the first L for which 2^L theta >= pi/2. That cutoff uses M through theta;
 it is useful for analysis but is not the stopping rule of the unknown-M search.
 
-Let w_j be the probability of first succeeding at check j. Eq. (35) gives
-S_J=sum(2^j w_j). The mean over all attempts is
+Let w_j be the probability of first succeeding at check j and
+S_J=sum(2^j w_j). Eq. (35) gives the mean over all attempts:
 E_J=S_J+2^J P(failure). The mean conditioned on success is S_J/P(success).
 The code names these separately. For N=512, M=1, S_J=22.0735048138 and
 E_J=22.7572108822. All unsuccessful attempts have a cost.

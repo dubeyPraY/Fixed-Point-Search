@@ -1,7 +1,7 @@
-"""Numerical plots for the manuscript dated 7 November 2026.
+"""Numerical plots for the manuscript dated 11 November 2026.
 
 The figure cutoff depends on M. Algorithm 1 instead uses a fixed N-based
-schedule. Cost plots label both schedules and Eq. (35)'s sum explicitly.
+schedule. Cost plots distinguish Eq. (35) from its successful-event contribution.
 Run from any folder; output goes to research_results/ unless --output is set.
 """
 import argparse
@@ -38,9 +38,9 @@ def make_figures(N=10**10):
         fig, ax = plt.subplots(figsize=(7, 4.5), layout='constrained')
         ax.loglog(M, math.pi*np.sqrt(N/M), '--', color='gray', label='Budget sufficient for success guarantee')
         ax.loglog(M, eps, label='Grover benchmark, Eq. (6)')
-        ax.loglog(M, event, ':', label='Figure cutoff: Eq. (35) successful-event sum')
-        ax.loglog(M, figure_mean, label='Figure cutoff: mean of all attempts')
-        ax.loglog(M, fixed_mean, label='Fixed schedule: mean of all attempts')
+        ax.loglog(M, event, ':', label='Figure cutoff: successful-event contribution')
+        ax.loglog(M, figure_mean, label='Figure cutoff: Eq. (35), all attempts')
+        ax.loglog(M, fixed_mean, label='Fixed schedule: Eq. (35), all attempts')
         ax.set(xlabel='Number of solutions M', ylabel='Oracle calls')
         ax.legend(fontsize=8)
         figures['fig7_oraclecalls'] = fig
@@ -97,10 +97,10 @@ def main():
     with (args.output/'oracle_scaling.csv').open('w', newline='', encoding='utf-8') as stream:
         writer = csv.writer(stream)
         writer.writerow(['M', 'epsilon_eq6', 'figure_last_check', 'fixed_last_check',
-                         'eq35_figure_cost', 'figure_all_attempt_cost', 'fixed_all_attempt_cost'])
+                         'figure_successful_event_cost', 'figure_all_attempt_cost', 'fixed_all_attempt_cost'])
         writer.writerows(rows)
     values = np.asarray(rows)
-    for name, column in [('Eq. (35), figure cutoff', 4), ('All attempts, figure cutoff', 5), ('All attempts, fixed schedule', 6)]:
+    for name, column in [('Successful-event contribution, figure cutoff', 4), ('Eq. (35), figure cutoff', 5), ('Eq. (35), fixed schedule', 6)]:
         ratios = values[:, column]/values[:, 1]
         print(f'{name}: ratio to epsilon min={ratios.min():.6f}, mean={ratios.mean():.6f}, max={ratios.max():.6f}')
     print('Ratios are finite-grid summaries, not universal constants.')

@@ -63,7 +63,7 @@ those terms for that file rather than silently replacing the repository license.
 
 ## Reference files and fallback checks
 
-Keep `docs/manuscript-2026-11-07.pdf` unchanged. Its SHA-256 file records the
+Keep `docs/manuscript-2026-11-11.pdf` unchanged. Its SHA-256 file records the
 reference used for the code. Put qualifications in `docs/manuscript_notes.md`.
 Edit `Codes/companion.md` and run `python tools/build_companion.py` to rebuild
 the guide; install `requirements-docs.txt` first and review every PDF page.

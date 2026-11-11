@@ -18,7 +18,7 @@ export only PNGs, or `--format pdf` to export only PDFs.
 research scripts. The main notebook evolves quantum amplitudes independently.
 Tests compare the two approaches.
 
-| Output | November 7 manuscript |
+| Output | November 11 manuscript |
 |---|---|
 | fig3_souffle | Fig. 3: Grover overshoot and cumulative fixed-point success |
 | fig5_probability | Fig. 5, with a fixed-schedule comparison added |
@@ -32,8 +32,8 @@ The research notebook uses the same plotting functions so its results stay
 in step with the script.
 
 The figure cutoff depends on M. The fixed schedule depends only on N. Both
-are named on the plots. The successful-event sum from Eq. (35) is distinct
-from the mean that includes failed attempts. See
+are named on the plots. Eq. (35) includes failed attempts; its successful-event
+contribution is shown separately. See
 [manuscript notes](manuscript_notes.md) for the formulas.
 
 ## Rebuild the companion guide

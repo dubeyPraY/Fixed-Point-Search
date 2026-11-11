@@ -1,6 +1,6 @@
 # A guide to ancilla-mediated fixed-point search
 
-Reference: Ancilla-mediated fixed-point quantum search using Grover iterations, by Yash Prabhat, Snigdha Thakur and Ankur Raina. This guide follows the manuscript dated November 7, 2026. The repository includes that PDF at docs/manuscript-2026-11-07.pdf. Equation numbers refer to that version.
+Reference: Ancilla-mediated fixed-point quantum search using Grover iterations, by Yash Prabhat, Snigdha Thakur and Ankur Raina. This guide follows the manuscript dated November 11, 2026. The repository includes that PDF at docs/manuscript-2026-11-11.pdf. Equation numbers refer to that version.
 
 ## What the search does
 
@@ -58,7 +58,7 @@ The final failure probability is 0.007217288. The mean cost, including those fai
 
 One G or F costs one oracle call under the manuscript's convention. Eq. (32) gives the new cost per check; Eq. (33) gives cumulative cost Q_j=2^j. Let w_j be the probability of first success at j, and let J be the last scheduled check.
 
-Eq. (35) gives S_J = sum from j=0 to J of 2^j w_j. This is the successful-event cost sum. The mean cost of all attempts is E_J = S_J + 2^J P(failure). The mean cost conditioned on success is S_J/P(success), when success has nonzero probability.
+Let S_J = sum from j=0 to J of 2^j w_j be the successful-event contribution. Eq. (35) gives the mean cost of all attempts, E_J = S_J + 2^J P(failure). The mean cost conditioned on success is S_J/P(success), when success has nonzero probability.
 
 For the notebook's default N=512, M=1 experiment, S_J=22.073504814, E_J=22.757210882, and the maximum is 64 queries. The README and notebook report E_J. Failed attempts are part of that average.
 
@@ -72,7 +72,7 @@ At N=512, M=3, the figure cutoff ends at check 5 and its all-attempt mean is 13.
 
 Epsilon follows the manuscript's Eq. (6): floor(pi/4 sqrt(N/M) - 1/2). It is a small-angle integer benchmark, not the exact optimal Grover count for every marked fraction. Ratios to epsilon are undefined if M=0 or epsilon=0.
 
-On the N=10^10 grid used by the research plots, the mean ratio to epsilon is 1.326455 for all attempts at the figure cutoff and 1.465243 for all attempts in the fixed schedule. The Eq. (35) sum at the figure cutoff has mean ratio 1.257464. These are unweighted grid averages. The approximate 1.33 factor is not a universal constant.
+On the N=10^10 grid used by the research plots, the mean ratio to epsilon is 1.326455 for all attempts at the figure cutoff and 1.465243 for all attempts in the fixed schedule. The successful-event contribution at the figure cutoff has mean ratio 1.257464. These are unweighted grid averages. The approximate 1.33 factor is not a universal constant.
 
 ## A success budget is not a maximum runtime
 
@@ -96,7 +96,7 @@ Run python Codes/verify_updated.py for the bound, schedule and query-cost checks
 
 ## Numerical figures
 
-Codes/FOQA_Complexity_corrected.ipynb uses Codes/make_figures.py for its plots. The script exports the numerical plots associated with manuscript Figs. 3, 5, 6 and 7, plus an extra two-check diagnostic. It does not generate circuit diagrams. Output names use the November 7 figure numbering. Each cost curve identifies its cutoff and whether failed attempts are included.
+Codes/FOQA_Complexity_corrected.ipynb uses Codes/make_figures.py for its plots. The script exports the numerical plots associated with manuscript Figs. 3, 5, 6 and 7, plus an extra two-check diagnostic. It does not generate circuit diagrams. Output names use the November 11 figure numbering. Each cost curve identifies its cutoff and whether failed attempts are included.
 
 ## Notes on the reference
 

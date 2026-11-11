@@ -1,4 +1,4 @@
-"""Analytical model for the manuscript dated 7 November 2026.
+"""Analytical model for the manuscript dated 11 November 2026.
 
 The main notebook evolves quantum states independently of this model.
 """
@@ -14,7 +14,7 @@ def schedule_length(N):
 
 
 def analyze(N, M, *, cutoff='fixed'):
-    """Separate Eq. (35)'s sum from the mean cost of all attempts.
+    """Compute Eq. (35), including the cost of unsuccessful attempts.
 
     'fixed' is Algorithm 1. 'figure' uses the manuscript plots' M-dependent
     cutoff; it is not an unknown-M stopping rule.

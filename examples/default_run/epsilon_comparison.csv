@@ -1,0 +1,5 @@
+Quantity,Oracle calls,Ratio to epsilon
+1.33 epsilon (reference),22.610000,1.330000
+Successful-event contribution,22.073505,1.298441
+"Eq. (35): exact mean, all attempts",22.757211,1.338659
+"Sampled mean, all attempts",22.987400,1.352200

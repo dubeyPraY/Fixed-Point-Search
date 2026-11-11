@@ -47,7 +47,7 @@ def build():
         canvas.line(52, 43, A4[0]-52, 43)
         canvas.setFont('Helvetica', 8)
         canvas.setFillColor(colors.HexColor('#506779'))
-        canvas.drawString(52, 30, 'Fixed-point search | Reference manuscript: 7 November 2026')
+        canvas.drawString(52, 30, 'Fixed-point search | Reference manuscript: 11 November 2026')
         canvas.drawRightString(A4[0]-52, 30, str(doc.page))
         canvas.restoreState()
 

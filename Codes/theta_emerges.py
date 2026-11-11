@@ -1,6 +1,6 @@
 """Build F from the oracle and uniform preparation, then read out theta.
 
-Reference: 7 November 2026 manuscript, Eq. (13) and Appendix A.
+Reference: 11 November 2026 manuscript, Eq. (13) and Appendix A.
 Matrices use |ancilla>|data> ordering. Dense matrices are for small examples.
 """
 import math

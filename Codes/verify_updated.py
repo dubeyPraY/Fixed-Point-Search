@@ -23,7 +23,7 @@ def main():
     np.testing.assert_allclose(default['expected_oracle_calls'], 22.75721088215292, atol=1e-12)
     print('261 small-register cases satisfy the bound or the M=0 budget.')
     print('N=512, M=1: maximum 64 queries; mean %.12f.' % default['expected_oracle_calls'])
-    print('Eq. (35) successful-event sum: %.12f.' % default['successful_event_cost'])
+    print('Eq. (35), all attempts: %.12f.' % default['expected_oracle_calls'])
     print('The mean includes failed attempts. The guarantee budget is not a per-attempt maximum.')
 
 
