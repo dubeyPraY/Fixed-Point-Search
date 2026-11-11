@@ -4,9 +4,9 @@ Keep one main demonstration notebook in `notebooks/`. It contains the search
 implementation, and the tests read those functions directly. A separate copy
 of the same implementation would make it easy for the two versions to drift.
 
-Leave the existing research work in `Codes/` until you have a reason to move
-it. This preserves links to those files. If you later reorganize that folder,
-do it in a separate change and update links at the same time.
+Keep the research scripts in `Codes/` so existing links continue to work.
+Use `search_model.py` for their shared analytical model. The demonstration
+notebook evolves states independently; tests compare its results with that model.
 
 ## Before merging a change
 
@@ -60,3 +60,21 @@ author list.
 
 Keep the existing MIT license. If a future addition has different terms, state
 those terms for that file rather than silently replacing the repository license.
+
+## Reference files and fallback checks
+
+Keep `docs/manuscript-2026-11-07.pdf` unchanged. Its SHA-256 file records the
+reference used for the code. Put qualifications in `docs/manuscript_notes.md`.
+Edit `Codes/companion.md` and run `python tools/build_companion.py` to rebuild
+the guide; install `requirements-docs.txt` first and review every PDF page.
+
+If a local Jupyter kernel cannot start, the following command checks notebook
+code, plots, settings and exports in the current Python process:
+
+```bash
+python tools/check_notebook_inprocess.py --all-cases
+```
+
+It omits the inline display magic and does not test the Jupyter kernel protocol.
+Add `--refresh-example` to deliberately refresh both saved notebooks and the
+default example files. The kernel-based checker remains the normal CI check.
