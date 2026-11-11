@@ -50,8 +50,11 @@ merging once the first workflow run has succeeded.
 
 Tag a tested version when you want a stable reference for a paper or a demo.
 Describe the algorithm version and the dependency versions in the release
-notes. When a public manuscript link or DOI is available, add it to the README
-and notebook together. Add `CITATION.cff` after confirming the software author
+notes. The paper is available as [arXiv:2608.29839](https://arxiv.org/pdf/2608.29839),
+with [version history on arXiv](https://arxiv.org/abs/2608.29839).
+Keep the paper links in the README and notebook in sync. Record the manuscript
+version when equation numbering or the algorithm changes.
+Add `CITATION.cff` after confirming the software author
 list and citation details; do not infer software authorship from a paper's
 author list.
 

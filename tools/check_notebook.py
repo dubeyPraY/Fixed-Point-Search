@@ -72,9 +72,9 @@ def main():
         executed = execute(copy.deepcopy(original), folder)
         image_count = sum('image/png' in output.get('data', {})
             for cell in executed.cells for output in cell.get('outputs', []))
-        if image_count != 2:
-            raise AssertionError(f'Expected two default figures, found {image_count}.')
-        print('PASS: default notebook, tables and two figures', flush=True)
+        if image_count != 3:
+            raise AssertionError(f'Expected three default figures, found {image_count}.')
+        print('PASS: default notebook, tables and three figures', flush=True)
         if args.refresh_example:
             nbformat.write(executed, NOTEBOOK)
             export = with_settings(original,
@@ -109,7 +109,8 @@ def main():
                     if output.output_type == 'stream' and 'PASS:' in output.text:
                         print(output.text.strip(), flush=True)
             required = ['summary.csv', 'checkpoints.csv', 'all_outcomes.csv',
-                        'run_config.json', 'comparison.png', 'outcomes.png', 'search.qpy']
+                        'run_config.json', 'comparison.png', 'outcomes.png', 'search.qpy',
+                        'epsilon_comparison.csv', 'oracle_scaling.csv', 'oracle_scaling.png']
             for name in required:
                 if not (folder / 'exports' / name).is_file():
                     raise AssertionError(f'Missing export: {name}')

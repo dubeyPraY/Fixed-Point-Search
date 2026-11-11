@@ -67,6 +67,10 @@ class NotebookTests(unittest.TestCase):
                     expected = sum(row['oracle_calls']*row['first_success'] for row in result['rows'])
                     expected += result['failure_probability']*result['max_oracle_calls']
                     self.assertAlmostEqual(expected, result['expected_oracle_calls'], places=9)
+                    event_cost, analytic_cost, failure = F['analytical_query_cost'](
+                        2**n, m, len(F['schedule'](n))-1)
+                    self.assertAlmostEqual(analytic_cost, expected, places=9)
+                    self.assertAlmostEqual(failure, result['failure_probability'], places=10)
                     if m:
                         self.assertGreaterEqual(result['success_probability'], 25/27-1e-10)
                     else:

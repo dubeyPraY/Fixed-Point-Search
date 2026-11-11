@@ -3,6 +3,9 @@
 This repository contains code for *Ancilla-mediated fixed-point quantum search
 using Grover iterations* by Yash Prabhat, Snigdha Thakur and Ankur Raina.
 
+[Read the paper (PDF)](https://arxiv.org/pdf/2608.29839) |
+[arXiv abstract and version history](https://arxiv.org/abs/2608.29839)
+
 The [demonstration notebook](notebooks/fixed_point_search.ipynb) walks through
 the search on a simulated quantum register. You can choose the register size,
 provide one or more solution states, or try a case with no solutions. It shows
@@ -89,8 +92,10 @@ in each round, not cumulative counts. The schedule depends on the register
 size; it does not need the number of solutions. The simulation knows the
 solution list because that list defines the example oracle.
 
-The notebook follows Algorithm 1 and Appendix A of the manuscript version
-dated November 7, 2026. The [companion guide](Codes/companion.pdf) explains the
+The [paper is available on arXiv](https://arxiv.org/pdf/2608.29839).
+The notebook's equation references follow Algorithm 1 and Appendix A of the
+manuscript version dated November 7, 2026 used for this implementation.
+The [companion guide](Codes/companion.pdf) explains the
 notation and gives a small worked example.
 
 ## Read the results
@@ -113,9 +118,23 @@ For the saved example with one solution among 512 candidates:
 | Expected oracle calls per attempt | 22.757211 |
 | Maximum oracle calls per attempt | 64 |
 
-The [example output folder](examples/default_run/) includes the tables, both
+The [example output folder](examples/default_run/) includes the tables, the
 figures, and `run_config.json` with the settings and package versions.
 The notebook also plots when attempts stop and which solutions they return.
+
+### Compare with 1.33 epsilon
+
+The notebook includes the paper's approximate `E[Q] = 1.33 epsilon` comparison,
+using its Eq. (6) definition of epsilon. In the default experiment, epsilon is
+17 and the exact all-attempt mean is `1.338659 epsilon`, about 0.65% above the
+`1.33 epsilon` reference.
+
+An analytical sweep at `N = 10^10` shows how the ratio varies. It distinguishes
+the M-dependent cutoff in `Codes/make_figures.py` from the implemented search's
+fixed N-based schedule. It also shows Eq. (35)'s successful-event sum separately
+from the mean that includes failed attempts. The 1.33 factor is an approximation,
+not a constant enforced by the simulation. This analytical sweep does not
+allocate a statevector of that size.
 
 An attempt that reaches the end of the schedule reports "not found". That
 does not prove the solution set is empty. With at least one solution, the
@@ -198,6 +217,14 @@ Keep the committed notebook at its default settings so readers have a stable
 example to compare against. Local exports go into `notebook_results/`, which
 Git ignores. See [maintaining the repository](docs/maintaining.md) for the
 suggested update process.
+
+## Paper reference
+
+Yash Prabhat, Snigdha Thakur and Ankur Raina (2026).
+*Ancilla-mediated fixed-point quantum search using Grover iterations*.
+[arXiv:2608.29839](https://arxiv.org/abs/2608.29839).
+[PDF](https://arxiv.org/pdf/2608.29839).
+[DOI: 10.48550/arXiv.2608.29839](https://doi.org/10.48550/arXiv.2608.29839).
 
 ## Dependencies and license
 
